@@ -4,8 +4,22 @@
   box-sizing: border-box;
   transition: all 1s;
 }
-
+#code {
+  height: 100vh;
+  padding-left: 40px;
+  overflow: auto;
+}
 #circle::before,#circle::after{
   content: '';
   position: absolute;
+}
+@media (max-width: 500px){
+  #code {
+    border-top: 1px dashed gray;
+    padding-left: 5px;
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    bottom: 0;
+  }
 }

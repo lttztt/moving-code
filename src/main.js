@@ -68,6 +68,11 @@ var string = `
   #preview{
     border: none;
   }
+  
+/** 完  **/
+
+
+
 `
 var code = ''
 
@@ -93,6 +98,7 @@ function run(){
     code += string[n]
     codeDom.innerHTML = code
     style.innerHTML = string.substring(0,n)
+    codeDom.scrollTo(0, 99999)
     if(n < string.length - 1){
       run()
     }else {
