@@ -3,17 +3,30 @@ var string = `
  *  我有做一些演示。
  ** /
 `
+var code = ''
 
 var codeDom = document.querySelector('#code')
 
-string = string.replace(/\n/g, '<br>')
-string = string.replace(/\s/g, '&nbsp;')
-codeDom.innerHTML = string
+// string = string.replace(/\n/g, '<br>')
+// string = string.replace(/\s/g, '&nbsp;')
 
 let n = 0;
-setInterval(() => {
-  if(n < string.length){
+run()
+function run(){
+  // 用setTimeout代替setInterval
+  setTimeout(() => {
+    if(string[n] === '\n'){
+      code += '<br>'
+    }else if(string[n] === '\s'){
+      code += '&nbsp;'
+    }
+    code += string[n]
+    codeDom.innerHTML = code
     n += 1
-    codeDom.innerHTML = string.substring(0, n)
-  }
-}, 30);
+    if(n < string.length - 1){
+      run()
+    }else {
+      return 
+    }
+  },10)
+}
